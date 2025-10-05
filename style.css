@@ -1153,30 +1153,10 @@ out Page Styles */
     object-fit: cover;
     border-radius: 10px;
     transition: var(--transition);
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-    background-size: 400% 400%;
-    animation: shimmer 1.5s ease-in-out infinite;
 }
 
 .product-image:hover {
     transform: scale(1.05);
-}
-
-.product-image[src] {
-    animation: none;
-    background: none;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .product-category-badge {
