@@ -6,8 +6,7 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      Products - Fresh Groceries & Daily Essentials | Moungiri Store
-      Rawande
+      Products - Fresh Groceries & Daily Essentials | Moungiri Store Rawande
     </title>
     <meta
       name="title"
@@ -25,17 +24,11 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://moungiristore.com/products.html"
-    />
+    <link rel="canonical" href="https://moungiristore.com/products.html" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://moungiristore.com/products.html"
-    />
+    <meta property="og:url" content="https://moungiristore.com/products.html" />
     <meta
       property="og:title"
       content="Products - Fresh Groceries & Daily Essentials | Moungiri Store"
@@ -393,88 +386,121 @@
       function getProductImage(productName) {
         const productImages = {
           // Rice - High quality basmati rice image
-          "Rice": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Rice: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Wheat Flour - Fresh wheat flour in bag
-          "Wheat Flour": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          "Wheat Flour":
+            "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Sugar - White crystal sugar
-          "Sugar": "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&h=300&fit=crop&auto=format&q=80",
-          
-          // Tea Powder - Premium tea leaves and powder
-          "Tea Powder": "https://images.unsplash.com/photo-1597318181409-cf64d0b3754d?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Sugar:
+            "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&h=300&fit=crop&auto=format&q=80",
+
+          // Tea Powder - Premium tea powder and leaves
+          "Tea Powder":
+            "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Biscuits - Assorted biscuits and cookies
-          "Biscuits": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Biscuits:
+            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Chips - Potato chips packets
-          "Chips": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Chips:
+            "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Detergent - Laundry detergent powder
-          "Detergent": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Detergent:
+            "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Soap - Bath soap bars
-          "Soap": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Soap: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Cold Drink - Soft drinks and cola
-          "Cold Drink": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          "Cold Drink":
+            "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Water Bottle - Packaged drinking water
-          "Water Bottle": "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          "Water Bottle":
+            "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Cooking Oil - Refined cooking oil bottles
-          "Cooking Oil": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          "Cooking Oil":
+            "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Milk - Fresh dairy milk
-          "Milk": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Milk: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Bread - Fresh bread loaves
-          "Bread": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Bread:
+            "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Eggs - Fresh chicken eggs
-          "Eggs": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Eggs: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Namkeen - Indian savory snacks
-          "Namkeen": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Namkeen:
+            "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Chocolate - Chocolate bars and sweets
-          "Chocolate": "https://images.unsplash.com/photo-1511381939415-e44015466834?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Chocolate:
+            "https://images.unsplash.com/photo-1511381939415-e44015466834?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Toothpaste - Dental care products
-          "Toothpaste": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Toothpaste:
+            "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Shampoo - Hair care products
-          "Shampoo": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Shampoo:
+            "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Juice - Fruit juices and drinks
-          "Juice": "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Juice:
+            "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Coffee - Coffee powder and beans
-          "Coffee": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=300&fit=crop&auto=format&q=80",
-          
+          Coffee:
+            "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=300&fit=crop&auto=format&q=80",
+
           // Additional specific product variations
-          "Rice (1kg)": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop&auto=format&q=80",
-          "Wheat Flour (1kg)": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop&auto=format&q=80",
-          "Sugar (1kg)": "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&h=300&fit=crop&auto=format&q=80",
-          "Tea Powder (250g)": "https://images.unsplash.com/photo-1597318181409-cf64d0b3754d?w=400&h=300&fit=crop&auto=format&q=80",
-          "Detergent (1kg)": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop&auto=format&q=80",
-          "Cold Drink (500ml)": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop&auto=format&q=80",
-          "Water Bottle (1L)": "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&h=300&fit=crop&auto=format&q=80"
+          "Rice (1kg)":
+            "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop&auto=format&q=80",
+          "Wheat Flour (1kg)":
+            "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop&auto=format&q=80",
+          "Sugar (1kg)":
+            "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&h=300&fit=crop&auto=format&q=80",
+          "Tea Powder (250g)":
+            "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&h=300&fit=crop&auto=format&q=80",
+          "Detergent (1kg)":
+            "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop&auto=format&q=80",
+          "Cold Drink (500ml)":
+            "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop&auto=format&q=80",
+          "Water Bottle (1L)":
+            "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&h=300&fit=crop&auto=format&q=80",
         };
-        
+
         // First try exact match, then try partial match
         if (productImages[productName]) {
           return productImages[productName];
         }
-        
+
         // Try to find a partial match for the product name
         for (const [key, value] of Object.entries(productImages)) {
-          if (productName.toLowerCase().includes(key.toLowerCase()) || 
-              key.toLowerCase().includes(productName.toLowerCase())) {
+          if (
+            productName.toLowerCase().includes(key.toLowerCase()) ||
+            key.toLowerCase().includes(productName.toLowerCase())
+          ) {
             return value;
           }
         }
-        
+
+        // Special handling for sugar and tea with backup images
+        if (productName.toLowerCase().includes("sugar")) {
+          return "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&h=300&fit=crop&auto=format&q=80";
+        }
+        if (productName.toLowerCase().includes("tea")) {
+          return "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&h=300&fit=crop&auto=format&q=80";
+        }
+
         // Default fallback image for grocery items
         return "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&auto=format&q=80";
       }
