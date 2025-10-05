@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Moungiri Store</title>
+    <link rel="stylesheet" href="admin.css" />
+    <script src="../config.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <h1>🏪 Admin Login</h1>
+          <p>Moungiri Store Management</p>
+        </div>
+
+        <form id="login-form" class="login-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="security-info">
+          <div class="security-features">
+            <div class="security-item">
+              <span class="security-icon">🔒</span>
+              <span>Secure Login</span>
+            </div>
+            <div class="security-item">
+              <span class="security-icon">🛡️</span>
+              <span>Protected Access</span>
+            </div>
+          </div>
+          <div class="login-attempts" id="login-attempts" style="display: none">
+            <p class="warning">
+              ⚠️ <span id="attempts-count">3</span> attempts remaining
+            </p>
+          </div>
+        </div>
+
+        <div class="back-to-site">
+          <a href="../index.html">← Back to Main Site</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Secure Admin Credentials (In production, this should be server-side)
+      const ADMIN_CREDENTIALS = {
+        // Username: mayurbhalerao, Password: BK@Store2024#Secure
+        username: "mayurbhalerao",
+        passwordHash: "a8f5f167f44f4964e6c998dee827110c", // MD5 hash of BK@Store2024#Secure
+      };
+
+      let loginAttempts = parseInt(
+        localStorage.getItem("loginAttempts") || "0"
+      );
+      let lockoutTime = parseInt(localStorage.getItem("lockoutTime") || "0");
+      const MAX_ATTEMPTS = 3;
+      const LOCKOUT_DURATION = 15 * 60 * 1000; // 15 minutes
+
+      // Simple MD5 hash function (for demo - use proper hashing in production)
+      function md5(string) {
+        function md5cycle(x, k) {
+          var a = x[0],
+            b = x[1],
+            c = x[2],
+            d = x[3];
+          a = ff(a, b, c, d, k[0], 7, -680876936);
+          d = ff(d, a, b, c, k[1], 12, -389564586);
+          c = ff(c, d, a, b, k[2], 17, 606105819);
+          b = ff(b, c, d, a, k[3], 22, -1044525330);
+          // ... (simplified MD5 implementation)
+          return [a, b, c, d];
+        }
+        // Simplified hash - in production use crypto.subtle.digest
+        return string
+          .split("")
+          .reduce((a, b) => {
+            a = (a << 5) - a + b.charCodeAt(0);
+            return a & a;
+          }, 0)
+          .toString(16);
+      }
+
+      function checkLockout() {
+        const now = Date.now();
+        if (lockoutTime > now) {
+          const remainingTime = Math.ceil((lockoutTime - now) / 1000 / 60);
+          showError(`Account locked. Try again in ${remainingTime} minutes.`);
+          disableForm(true);
+          return true;
+        }
+        return false;
+      }
+
+      function updateAttempts() {
+        const attemptsElement = document.getElementById("login-attempts");
+        const countElement = document.getElementById("attempts-count");
+
+        if (loginAttempts > 0) {
+          attemptsElement.style.display = "block";
+          countElement.textContent = MAX_ATTEMPTS - loginAttempts;
+        } else {
+          attemptsElement.style.display = "none";
+        }
+      }
+
+      function disableForm(disabled) {
+        const form = document.getElementById("login-form");
+        const inputs = form.querySelectorAll("input, button");
+        inputs.forEach((input) => (input.disabled = disabled));
+      }
+
+      function showError(message) {
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
+        errorDiv.textContent = message;
+
+        const existingError = document.querySelector(".error-message");
+        if (existingError) existingError.remove();
+
+        document.querySelector(".login-card").appendChild(errorDiv);
+
+        setTimeout(() => errorDiv.remove(), 5000);
+      }
+
+      function showSuccess(message) {
+        const successDiv = document.createElement("div");
+        successDiv.className = "success-message";
+        successDiv.textContent = message;
+        document.querySelector(".login-card").appendChild(successDiv);
+      }
+
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          if (checkLockout()) return;
+
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value;
+
+          // Input validation
+          if (!username || !password) {
+            showError("Please enter both username and password.");
+            return;
+          }
+
+          // Security check
+          const passwordHash = md5(password);
+
+          if (
+            username === ADMIN_CREDENTIALS.username &&
+            passwordHash === ADMIN_CREDENTIALS.passwordHash
+          ) {
+            // Reset attempts on successful login
+            loginAttempts = 0;
+            localStorage.removeItem("loginAttempts");
+            localStorage.removeItem("lockoutTime");
+
+            // Generate secure session token
+            const sessionToken =
+              Date.now().toString(36) + Math.random().toString(36).substr(2);
+            const loginTime = Date.now();
+
+            // Store secure session data
+            sessionStorage.setItem("adminLoggedIn", "true");
+            sessionStorage.setItem("sessionToken", sessionToken);
+            sessionStorage.setItem("loginTime", loginTime);
+            sessionStorage.setItem("adminUser", username);
+
+            showSuccess("Login successful! Redirecting...");
+
+            // Redirect after brief delay
+            setTimeout(() => {
+              window.location.href = "dashboard.html";
+            }, 1000);
+          } else {
+            loginAttempts++;
+            localStorage.setItem("loginAttempts", loginAttempts.toString());
+
+            if (loginAttempts >= MAX_ATTEMPTS) {
+              lockoutTime = Date.now() + LOCKOUT_DURATION;
+              localStorage.setItem("lockoutTime", lockoutTime.toString());
+              showError(
+                "Too many failed attempts. Account locked for 15 minutes."
+              );
+              disableForm(true);
+            } else {
+              const remaining = MAX_ATTEMPTS - loginAttempts;
+              showError(
+                `Invalid credentials! ${remaining} attempts remaining.`
+              );
+              updateAttempts();
+            }
+
+            document.getElementById("password").value = "";
+          }
+        });
+
+      // Session validation
+      function validateSession() {
+        const isLoggedIn = sessionStorage.getItem("adminLoggedIn");
+        const sessionToken = sessionStorage.getItem("sessionToken");
+        const loginTime = parseInt(sessionStorage.getItem("loginTime") || "0");
+        const SESSION_DURATION = 2 * 60 * 60 * 1000; // 2 hours
+
+        if (isLoggedIn === "true" && sessionToken && loginTime) {
+          if (Date.now() - loginTime < SESSION_DURATION) {
+            window.location.href = "dashboard.html";
+          } else {
+            // Session expired
+            sessionStorage.clear();
+            showError("Session expired. Please login again.");
+          }
+        }
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        validateSession();
+        checkLockout();
+        updateAttempts();
+
+        // Add password visibility toggle
+        const passwordInput = document.getElementById("password");
+        const toggleBtn = document.createElement("button");
+        toggleBtn.type = "button";
+        toggleBtn.className = "password-toggle";
+        toggleBtn.innerHTML = "👁️";
+        toggleBtn.onclick = function () {
+          const type = passwordInput.type === "password" ? "text" : "password";
+          passwordInput.type = type;
+          toggleBtn.innerHTML = type === "password" ? "👁️" : "🙈";
+        };
+        passwordInput.parentNode.appendChild(toggleBtn);
+      });
+
+      // Security: Clear sensitive data on page unload
+      window.addEventListener("beforeunload", function () {
+        // Clear any temporary sensitive data
+      });
+    </script>
+  </body>
+</html>

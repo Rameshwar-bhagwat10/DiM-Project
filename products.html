@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Products - Fresh Groceries & Daily Essentials | Moungiri Store
+      Rawande
+    </title>
+    <meta
+      name="title"
+      content="Products - Fresh Groceries & Daily Essentials | Moungiri Store Rawande"
+    />
+    <meta
+      name="description"
+      content="Browse our wide range of products: fresh groceries, snacks, household items, beverages. Rice, wheat flour, tea, detergent, soap, cold drinks & more at Moungiri Store, Rawande."
+    />
+    <meta
+      name="keywords"
+      content="kirana store products rawande, fresh groceries kopargaon, rice wheat flour tea, household items detergent soap, beverages cold drinks, daily essentials, quality products rawande"
+    />
+    <meta name="author" content="Mayur Sanjay Bhalerao" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://moungiristore.com/products.html"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moungiristore.com/products.html"
+    />
+    <meta
+      property="og:title"
+      content="Products - Fresh Groceries & Daily Essentials | Moungiri Store"
+    />
+    <meta
+      property="og:description"
+      content="Wide range of fresh groceries, snacks, household items, and beverages. Quality products at competitive prices in Rawande, Kopargaon."
+    />
+    <meta
+      property="og:image"
+      content="https://moungiristore.com/assets/Home_page.jpg"
+    />
+    <meta property="og:site_name" content="Moungiri Store" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://moungiristore.com/products.html"
+    />
+    <meta
+      property="twitter:title"
+      content="Products - Fresh Groceries & Daily Essentials | Moungiri Store"
+    />
+    <meta
+      property="twitter:description"
+      content="Wide range of fresh groceries, snacks, household items, and beverages. Quality products at competitive prices."
+    />
+    <meta
+      property="twitter:image"
+      content="https://moungiristore.com/assets/Home_page.jpg"
+    />
+
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader"></div>
+    </div>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>Moungiri</h2>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="highlight.html" class="nav-link">Highlights</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="products.html" class="nav-link active">Products</a></li>
+          <li><a href="profile.html" class="nav-link">Profile</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="theme-toggle">
+          <button id="theme-btn">🌙</button>
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="products-hero">
+        <div class="container">
+          <h1>Our Products</h1>
+          <p>Quality products for all your daily needs</p>
+        </div>
+      </section>
+
+      <section class="products-section">
+        <div class="container">
+          <div class="products-controls">
+            <div class="search-container">
+              <input
+                type="text"
+                id="product-search"
+                placeholder="Search products..."
+                class="search-input"
+              />
+              <button class="search-btn">🔍</button>
+            </div>
+            <div class="filter-container">
+              <select id="category-filter" class="category-select">
+                <option value="all">All Categories</option>
+                <option value="grocery">Grocery</option>
+                <option value="snacks">Snacks</option>
+                <option value="household">Household</option>
+                <option value="beverages">Beverages</option>
+              </select>
+            </div>
+            <div class="filter-container">
+              <select id="price-filter" class="price-select">
+                <option value="all">All Prices</option>
+                <option value="0-50">₹0 - ₹50</option>
+                <option value="51-100">₹51 - ₹100</option>
+                <option value="101-150">₹101 - ₹150</option>
+                <option value="151-200">₹151 - ₹200</option>
+                <option value="200+">₹200+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-summary" id="filter-summary" style="display: none">
+            <p>Showing products: <span id="filter-info"></span></p>
+            <button id="clear-filters" class="clear-filters-btn">
+              Clear All Filters
+            </button>
+          </div>
+
+          <div class="products-grid" id="products-grid">
+            <!-- Products will be loaded here by JavaScript -->
+          </div>
+
+          <div id="no-products" class="no-products" style="display: none">
+            <div class="no-products-icon">📦</div>
+            <h3>No products found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Moungiri Store</h3>
+            <p>Your trusted local shop for all daily needs</p>
+          </div>
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <p>📧 mayurbhalerao530@gmail.com</p>
+            <p>📍 Rawande, Takli-Dhamori Road, Tal: Kopargaon - 423601</p>
+            <p>📱 +91 9561152330</p>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/1AqqVti5He/"
+                target="_blank"
+                class="social-link"
+              >
+                📘 Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/mohan_giri_kirana_shop?igsh=MTN6OWQwN29sbGNkZA%3D%3D&utm_source=qr"
+                target="_blank"
+                class="social-link"
+              >
+                📷 Instagram
+              </a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Visitor Count</h4>
+            <p id="visitor-count">Loading...</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Moungiri Store. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">↑</button>
+
+    <script src="script.js"></script>
+    <script>
+      // Products page specific functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        displayProducts();
+        setupProductSearch();
+        setupCategoryFilter();
+      });
+
+      function displayProducts() {
+        const productsGrid = document.getElementById("products-grid");
+        const noProductsDiv = document.getElementById("no-products");
+
+        if (!productsGrid) return;
+
+        if (filteredProducts.length === 0) {
+          productsGrid.style.display = "none";
+          noProductsDiv.style.display = "block";
+          return;
+        }
+
+        productsGrid.style.display = "grid";
+        noProductsDiv.style.display = "none";
+
+        productsGrid.innerHTML = filteredProducts
+          .map((product) => {
+            const priceRange = getPriceRange(product.price);
+            return `
+                <div class="product-item ${
+                  !product.available ? "out-of-stock" : ""
+                }" data-price-range="${priceRange}">
+                    <div class="product-image-container">
+                        <img src="${getProductImage(product.name)}" alt="${
+              product.name
+            }" class="product-image" loading="lazy">
+                        <div class="product-category-badge">${capitalizeFirst(
+                          product.category
+                        )}</div>
+                        <div class="product-actions">
+                            <button class="product-menu-btn" onclick="toggleProductMenu(${
+                              product.id
+                            })">⋮</button>
+                            <div class="product-dropdown" id="dropdown-${
+                              product.id
+                            }">
+                                <div class="dropdown-item" onclick="viewProductDetails(${
+                                  product.id
+                                })">
+                                    <span class="dropdown-icon">👁️</span>
+                                    <span>View Details</span>
+                                </div>
+                                <div class="dropdown-item" onclick="addToWishlist(${
+                                  product.id
+                                })">
+                                    <span class="dropdown-icon">❤️</span>
+                                    <span>Add to Wishlist</span>
+                                </div>
+                                <div class="dropdown-item" onclick="shareProduct(${
+                                  product.id
+                                })">
+                                    <span class="dropdown-icon">📤</span>
+                                    <span>Share Product</span>
+                                </div>
+                                <div class="dropdown-item" onclick="contactForProduct(${
+                                  product.id
+                                })">
+                                    <span class="dropdown-icon">📞</span>
+                                    <span>Contact for Order</span>
+                                </div>
+                                ${
+                                  !product.available
+                                    ? '<div class="dropdown-item" onclick="notifyWhenAvailable(' +
+                                      product.id +
+                                      ')"><span class="dropdown-icon">🔔</span><span>Notify When Available</span></div>'
+                                    : '<div class="dropdown-item" onclick="checkAvailability(' +
+                                      product.id +
+                                      ')"><span class="dropdown-icon">📦</span><span>Check Stock</span></div>'
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="price-section">
+                            <div class="price-dropdown-container">
+                                <select class="price-dropdown" id="price-select-${
+                                  product.id
+                                }" onchange="updateProductPrice(${product.id})">
+                                    ${
+                                      product.priceVariants
+                                        ? product.priceVariants
+                                            .map((variant, index) => {
+                                              const savings =
+                                                index > 0
+                                                  ? Math.round(
+                                                      product.priceVariants[0]
+                                                        .price *
+                                                        getQuantityMultiplier(
+                                                          variant.size
+                                                        ) -
+                                                        variant.price
+                                                    )
+                                                  : 0;
+                                              const isPopular = index === 1;
+                                              const isBestValue =
+                                                index ===
+                                                  product.priceVariants.length -
+                                                    1 &&
+                                                product.priceVariants.length >
+                                                  2;
+                                              let label = `${variant.size} - ₹${variant.price}`;
+                                              if (isPopular)
+                                                label += " (Popular)";
+                                              if (isBestValue)
+                                                label += " (Best Value)";
+                                              if (savings > 0)
+                                                label += ` (Save ₹${savings})`;
+                                              return `<option value="${index}" ${
+                                                index === 1 ? "selected" : ""
+                                              } data-popular="${isPopular}" data-best="${isBestValue}">${label}</option>`;
+                                            })
+                                            .join("")
+                                        : `<option value="0">₹${product.price}</option>`
+                                    }
+                                </select>
+                            </div>
+                            <div class="selected-price" id="selected-price-${
+                              product.id
+                            }">
+                                <div class="main-price">₹${
+                                  product.priceVariants
+                                    ? product.priceVariants[1].price
+                                    : product.price
+                                }</div>
+                                <div class="price-details" id="price-details-${
+                                  product.id
+                                }">
+                                    ${
+                                      product.priceVariants
+                                        ? `
+                                        <div class="per-unit-price">₹${Math.round(
+                                          product.priceVariants[1].price /
+                                            getQuantityMultiplier(
+                                              product.priceVariants[1].size
+                                            )
+                                        )} per unit</div>
+                                        <div class="size-info">${
+                                          product.priceVariants[1].size
+                                        }</div>
+                                    `
+                                        : ""
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-status ${
+                          product.available ? "available" : "unavailable"
+                        }">
+                            ${
+                              product.available
+                                ? "✅ Available"
+                                : "❌ Out of Stock"
+                            }
+                        </div>
+                    </div>
+                </div>
+                `;
+          })
+          .join("");
+      }
+
+      function getProductIcon(category) {
+        const icons = {
+          grocery: "🌾",
+          snacks: "🍪",
+          household: "🧽",
+          beverages: "🥤",
+        };
+        return icons[category] || "📦";
+      }
+
+      function getProductImage(productName) {
+        const productImages = {
+          "Rice (1kg)":
+            "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&h=200&fit=crop",
+          "Wheat Flour (1kg)":
+            "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=200&fit=crop",
+          "Sugar (1kg)":
+            "https://images.unsplash.com/photo-1582049165195-4f0c99bbf2a6?w=300&h=200&fit=crop",
+          "Tea Powder (250g)":
+            "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300&h=200&fit=crop",
+          Biscuits:
+            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&h=200&fit=crop",
+          Chips:
+            "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&h=200&fit=crop",
+          "Detergent (1kg)":
+            "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300&h=200&fit=crop",
+          Soap: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=200&fit=crop",
+          "Cold Drink (500ml)":
+            "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=300&h=200&fit=crop",
+          "Water Bottle (1L)":
+            "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=300&h=200&fit=crop",
+        };
+        return (
+          productImages[productName] ||
+          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop"
+        );
+      }
+
+      function capitalizeFirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
+
+      function getPriceRange(price) {
+        if (price <= 50) return "0-50";
+        if (price <= 100) return "51-100";
+        if (price <= 150) return "101-150";
+        if (price <= 200) return "151-200";
+        return "200+";
+      }
+
+      function getQuantityMultiplier(size) {
+        // Extract numeric value from size string
+        const match = size.match(/(\d+(?:\.\d+)?)/);
+        if (match) {
+          const num = parseFloat(match[1]);
+          if (size.includes("kg")) return num * 2; // kg to 500g ratio
+          if (size.includes("g")) return num / 500; // g to 500g ratio
+          if (size.includes("L") || size.includes("ml")) {
+            if (size.includes("L")) return num * 4; // L to 250ml ratio
+            return num / 250; // ml to 250ml ratio
+          }
+        }
+        // For non-numeric sizes, use position-based multiplier
+        if (size.includes("Small")) return 0.5;
+        if (size.includes("Regular") || size.includes("Medium")) return 1;
+        if (size.includes("Large") || size.includes("Family")) return 2;
+        if (size.includes("Jumbo") || size.includes("Bulk")) return 3;
+        return 1;
+      }
+
+      function setupProductSearch() {
+        const searchInput = document.getElementById("product-search");
+        const searchBtn = document.querySelector(".search-btn");
+
+        if (searchInput) {
+          searchInput.addEventListener("input", performSearch);
+          searchInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              performSearch();
+            }
+          });
+        }
+
+        if (searchBtn) {
+          searchBtn.addEventListener("click", performSearch);
+        }
+      }
+
+      function setupCategoryFilter() {
+        const categoryFilter = document.getElementById("category-filter");
+        const priceFilter = document.getElementById("price-filter");
+
+        if (categoryFilter) {
+          categoryFilter.addEventListener("change", performSearch);
+        }
+
+        if (priceFilter) {
+          priceFilter.addEventListener("change", performSearch);
+        }
+      }
+
+      function performSearch() {
+        const searchTerm = document.getElementById("product-search").value;
+        const category = document.getElementById("category-filter").value;
+        const priceRange = document.getElementById("price-filter").value;
+
+        filteredProducts = filterProducts(searchTerm, category, priceRange);
+        displayProducts();
+        updateFilterSummary(searchTerm, category, priceRange);
+      }
+
+      function updateFilterSummary(searchTerm, category, priceRange) {
+        const filterSummary = document.getElementById("filter-summary");
+        const filterInfo = document.getElementById("filter-info");
+
+        let filters = [];
+
+        if (searchTerm) filters.push(`"${searchTerm}"`);
+        if (category !== "all") filters.push(capitalizeFirst(category));
+        if (priceRange !== "all") {
+          const priceText =
+            priceRange === "200+"
+              ? "₹200+"
+              : `₹${priceRange.replace("-", " - ₹")}`;
+          filters.push(priceText);
+        }
+
+        if (filters.length > 0) {
+          filterInfo.textContent = filters.join(", ");
+          filterSummary.style.display = "flex";
+        } else {
+          filterSummary.style.display = "none";
+        }
+      }
+
+      function clearAllFilters() {
+        document.getElementById("product-search").value = "";
+        document.getElementById("category-filter").value = "all";
+        document.getElementById("price-filter").value = "all";
+
+        filteredProducts = [...products];
+        displayProducts();
+        updateFilterSummary("", "all", "all");
+      }
+
+      // Initialize clear filters button
+      document.addEventListener("DOMContentLoaded", function () {
+        const clearBtn = document.getElementById("clear-filters");
+        if (clearBtn) {
+          clearBtn.addEventListener("click", clearAllFilters);
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest(".product-actions")) {
+            closeAllDropdowns();
+          }
+        });
+      });
+
+      // Product dropdown functions
+      function toggleProductMenu(productId) {
+        const dropdown = document.getElementById(`dropdown-${productId}`);
+        const isOpen = dropdown.classList.contains("show");
+
+        // Close all other dropdowns
+        closeAllDropdowns();
+
+        // Toggle current dropdown
+        if (!isOpen) {
+          dropdown.classList.add("show");
+        }
+      }
+
+      function closeAllDropdowns() {
+        document.querySelectorAll(".product-dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("show");
+        });
+      }
+
+      function viewProductDetails(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          showProductModal(product);
+        }
+        closeAllDropdowns();
+      }
+
+      function showProductModal(product) {
+        const selectedVariant = getSelectedProductVariant(product.id);
+        const priceVariantsHtml = product.priceVariants
+          ? product.priceVariants
+              .map(
+                (variant) =>
+                  `<div class="variant-option">
+                        <span class="variant-size">${variant.size}</span>
+                        <span class="variant-price">₹${variant.price}</span>
+                    </div>`
+              )
+              .join("")
+          : "";
+
+        const modal = document.createElement("div");
+        modal.className = "product-modal";
+        modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>${product.name}</h2>
+                        <button class="modal-close" onclick="closeModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="${getProductImage(product.name)}" alt="${
+          product.name
+        }" class="modal-image">
+                        <div class="modal-details">
+                            <p><strong>Selected:</strong> ${
+                              selectedVariant.size
+                            } - ₹${selectedVariant.price}</p>
+                            <p><strong>Category:</strong> ${capitalizeFirst(
+                              product.category
+                            )}</p>
+                            <p><strong>Status:</strong> ${
+                              product.available ? "Available" : "Out of Stock"
+                            }</p>
+                            <p><strong>Description:</strong> High-quality ${product.name.toLowerCase()} available at competitive prices.</p>
+                            ${
+                              priceVariantsHtml
+                                ? `
+                                <div class="all-variants">
+                                    <p><strong>All Available Sizes:</strong></p>
+                                    <div class="variants-grid">
+                                        ${priceVariantsHtml}
+                                    </div>
+                                </div>
+                            `
+                                : ""
+                            }
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-primary" onclick="contactForProduct(${
+                          product.id
+                        })">Contact for Order</button>
+                        <button class="btn-secondary" onclick="closeModal()">Close</button>
+                    </div>
+                </div>
+            `;
+        document.body.appendChild(modal);
+      }
+
+      function closeModal() {
+        const modal = document.querySelector(".product-modal");
+        if (modal) {
+          modal.remove();
+        }
+      }
+
+      function addToWishlist(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+          if (!wishlist.find((item) => item.id === productId)) {
+            wishlist.push(product);
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+            showNotification(`${product.name} added to wishlist! ❤️`);
+          } else {
+            showNotification(`${product.name} is already in your wishlist!`);
+          }
+        }
+        closeAllDropdowns();
+      }
+
+      function shareProduct(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          if (navigator.share) {
+            navigator.share({
+              title: `${product.name} - Moungiri Store`,
+              text: `Check out ${product.name} for ₹${product.price} at Moungiri Store, Rawande!`,
+              url: window.location.href,
+            });
+          } else {
+            // Fallback for browsers that don't support Web Share API
+            const shareText = `Check out ${product.name} for ₹${product.price} at Moungiri Store, Rawande! ${window.location.href}`;
+            navigator.clipboard.writeText(shareText).then(() => {
+              showNotification("Product link copied to clipboard! 📋");
+            });
+          }
+        }
+        closeAllDropdowns();
+      }
+
+      function contactForProduct(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          const selectedVariant = getSelectedProductVariant(productId);
+          const message = `Hi! I'm interested in ${product.name} (${selectedVariant.size}) for ₹${selectedVariant.price}. Is it available?`;
+          const whatsappUrl = `https://wa.me/919561152330?text=${encodeURIComponent(
+            message
+          )}`;
+          window.open(whatsappUrl, "_blank");
+        }
+        closeAllDropdowns();
+      }
+
+      function notifyWhenAvailable(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          showNotification(
+            `We'll notify you when ${product.name} is back in stock! 🔔`
+          );
+          // Here you could implement actual notification logic
+        }
+        closeAllDropdowns();
+      }
+
+      function checkAvailability(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          showNotification(
+            `${product.name} is currently available! Call +91 9561152330 to reserve. 📞`
+          );
+        }
+        closeAllDropdowns();
+      }
+
+      function showNotification(message) {
+        const notification = document.createElement("div");
+        notification.className = "notification";
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+          notification.classList.remove("show");
+          setTimeout(() => {
+            notification.remove();
+          }, 300);
+        }, 3000);
+      }
+
+      function updateProductPrice(productId) {
+        const product = products.find((p) => p.id === productId);
+        const priceSelect = document.getElementById(
+          `price-select-${productId}`
+        );
+        const selectedPriceElement = document.getElementById(
+          `selected-price-${productId}`
+        );
+        const priceDetailsElement = document.getElementById(
+          `price-details-${productId}`
+        );
+
+        if (
+          product &&
+          product.priceVariants &&
+          priceSelect &&
+          selectedPriceElement
+        ) {
+          const selectedIndex = parseInt(priceSelect.value);
+          const selectedVariant = product.priceVariants[selectedIndex];
+          const perUnitPrice = Math.round(
+            selectedVariant.price / getQuantityMultiplier(selectedVariant.size)
+          );
+
+          // Update main price
+          const mainPriceElement =
+            selectedPriceElement.querySelector(".main-price");
+          if (mainPriceElement) {
+            mainPriceElement.textContent = `₹${selectedVariant.price}`;
+          }
+
+          // Update price details
+          if (priceDetailsElement) {
+            priceDetailsElement.innerHTML = `
+                        <div class="per-unit-price">₹${perUnitPrice} per unit</div>
+                        <div class="size-info">${selectedVariant.size}</div>
+                        ${
+                          selectedIndex > 0
+                            ? `<div class="savings-info">💰 Bulk savings!</div>`
+                            : ""
+                        }
+                    `;
+          }
+
+          // Add a subtle animation to highlight the price change
+          selectedPriceElement.classList.add("price-updated");
+          setTimeout(() => {
+            selectedPriceElement.classList.remove("price-updated");
+          }, 300);
+        }
+      }
+
+      function getSelectedProductVariant(productId) {
+        const product = products.find((p) => p.id === productId);
+        const priceSelect = document.getElementById(
+          `price-select-${productId}`
+        );
+
+        if (product && product.priceVariants && priceSelect) {
+          const selectedIndex = parseInt(priceSelect.value);
+          return product.priceVariants[selectedIndex];
+        }
+        return { size: "Standard", price: product.price };
+      }
+    </script>
+  </body>
+</html>
