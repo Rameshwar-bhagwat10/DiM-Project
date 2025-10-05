@@ -72,7 +72,7 @@ const CONFIG = {
     ADMIN: {
         USERNAME: 'mayurbhalerao',
         // Password: BK@Store2024#Secure (hashed)
-        PASSWORD_HASH: 'a8f5f167f44f4964e6c998dee827110c'
+        PASSWORD_HASH: '60c63cca31373f20a3fd7b18d534c602'
     }
 };
 
