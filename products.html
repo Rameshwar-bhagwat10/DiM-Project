@@ -6,8 +6,7 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      Products - Fresh Groceries & Daily Essentials | Moungiri Store
-      Rawande
+      Products - Fresh Groceries & Daily Essentials | Moungiri Store Rawande
     </title>
     <meta
       name="title"
@@ -25,17 +24,11 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://moungiristore.com/products.html"
-    />
+    <link rel="canonical" href="https://moungiristore.com/products.html" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://moungiristore.com/products.html"
-    />
+    <meta property="og:url" content="https://moungiristore.com/products.html" />
     <meta
       property="og:title"
       content="Products - Fresh Groceries & Daily Essentials | Moungiri Store"
@@ -216,7 +209,44 @@
         displayProducts();
         setupProductSearch();
         setupCategoryFilter();
+        preloadImages();
       });
+
+      function preloadImages() {
+        // Check connection speed and adjust image quality accordingly
+        const connection =
+          navigator.connection ||
+          navigator.mozConnection ||
+          navigator.webkitConnection;
+        const isSlowConnection =
+          connection &&
+          (connection.effectiveType === "slow-2g" ||
+            connection.effectiveType === "2g");
+
+        // Preload category fallback images for better performance
+        const categoryImages = [
+          "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop&auto=format&q=80",
+          "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop&auto=format&q=80",
+          "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=300&fit=crop&auto=format&q=80",
+          "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop&auto=format&q=80",
+        ];
+
+        // Only preload on fast connections to save bandwidth
+        if (!isSlowConnection) {
+          categoryImages.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+          });
+        }
+      }
+
+      function getOptimizedImageUrl(baseUrl, isSlowConnection = false) {
+        // Adjust image quality based on connection speed
+        if (isSlowConnection) {
+          return baseUrl.replace("q=80", "q=60").replace("w=400", "w=300");
+        }
+        return baseUrl;
+      }
 
       function displayProducts() {
         const productsGrid = document.getElementById("products-grid");
@@ -243,7 +273,9 @@
                     <div class="product-image-container">
                         <img src="${getProductImage(product.name)}" alt="${
               product.name
-            }" class="product-image" loading="lazy">
+            }" class="product-image" loading="lazy" onerror="handleImageError(this, '${
+              product.name
+            }', '${product.category}')">
                         <div class="product-category-badge">${capitalizeFirst(
                           product.category
                         )}</div>
@@ -392,30 +424,81 @@
 
       function getProductImage(productName) {
         const productImages = {
-          "Rice (1kg)":
-            "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&h=200&fit=crop",
-          "Wheat Flour (1kg)":
-            "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=200&fit=crop",
-          "Sugar (1kg)":
-            "https://images.unsplash.com/photo-1582049165195-4f0c99bbf2a6?w=300&h=200&fit=crop",
-          "Tea Powder (250g)":
-            "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300&h=200&fit=crop",
+          // Grocery Items
+          Rice: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop&auto=format&q=80",
+          "Wheat Flour":
+            "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop&auto=format&q=80",
+          Sugar:
+            "https://images.unsplash.com/photo-1582049165195-4f0c99bbf2a6?w=400&h=300&fit=crop&auto=format&q=80",
+          "Tea Powder":
+            "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&h=300&fit=crop&auto=format&q=80",
+
+          // Snacks
           Biscuits:
-            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop&auto=format&q=80",
           Chips:
-            "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300&h=200&fit=crop",
-          "Detergent (1kg)":
-            "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300&h=200&fit=crop",
-          Soap: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=200&fit=crop",
-          "Cold Drink (500ml)":
-            "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=300&h=200&fit=crop",
-          "Water Bottle (1L)":
-            "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=300&h=200&fit=crop",
+            "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=300&fit=crop&auto=format&q=80",
+
+          // Household Items
+          Detergent:
+            "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop&auto=format&q=80",
+          Soap: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&auto=format&q=80",
+
+          // Beverages
+          "Cold Drink":
+            "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop&auto=format&q=80",
+          "Water Bottle":
+            "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&h=300&fit=crop&auto=format&q=80",
+
+          // Additional grocery items (for future expansion)
+          Oil: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop&auto=format&q=80",
+          Salt: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=400&h=300&fit=crop&auto=format&q=80",
+          Spices:
+            "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop&auto=format&q=80",
+          Milk: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=300&fit=crop&auto=format&q=80",
+          Bread:
+            "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop&auto=format&q=80",
+          Eggs: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400&h=300&fit=crop&auto=format&q=80",
+          Lentils:
+            "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop&auto=format&q=80",
+          Onions:
+            "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&h=300&fit=crop&auto=format&q=80",
+          Potatoes:
+            "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&h=300&fit=crop&auto=format&q=80",
         };
-        return (
-          productImages[productName] ||
-          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop"
-        );
+
+        // Try exact match first
+        if (productImages[productName]) {
+          return productImages[productName];
+        }
+
+        // Try partial match for products with variants
+        for (const [key, value] of Object.entries(productImages)) {
+          if (productName.toLowerCase().includes(key.toLowerCase())) {
+            return value;
+          }
+        }
+
+        // Category-based fallback images
+        const categoryImages = {
+          grocery:
+            "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop&auto=format&q=80",
+          snacks:
+            "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop&auto=format&q=80",
+          household:
+            "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=300&fit=crop&auto=format&q=80",
+          beverages:
+            "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop&auto=format&q=80",
+        };
+
+        // Find product category and use category fallback
+        const product = products.find((p) => p.name === productName);
+        if (product && categoryImages[product.category]) {
+          return categoryImages[product.category];
+        }
+
+        // Default fallback image
+        return "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&auto=format&q=80";
       }
 
       function capitalizeFirst(str) {
@@ -428,6 +511,34 @@
         if (price <= 150) return "101-150";
         if (price <= 200) return "151-200";
         return "200+";
+      }
+
+      function handleImageError(img, productName, category) {
+        console.log(`Image failed to load for ${productName}, using fallback`);
+
+        // Category-based fallback images
+        const categoryFallbacks = {
+          grocery:
+            "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop&auto=format&q=80",
+          snacks:
+            "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop&auto=format&q=80",
+          household:
+            "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=300&fit=crop&auto=format&q=80",
+          beverages:
+            "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop&auto=format&q=80",
+        };
+
+        // Try category fallback first
+        if (categoryFallbacks[category]) {
+          img.src = categoryFallbacks[category];
+        } else {
+          // Ultimate fallback - generic product image
+          img.src =
+            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&auto=format&q=80";
+        }
+
+        // Remove error handler to prevent infinite loop
+        img.onerror = null;
       }
 
       function getQuantityMultiplier(size) {
@@ -593,7 +704,9 @@
                     <div class="modal-body">
                         <img src="${getProductImage(product.name)}" alt="${
           product.name
-        }" class="modal-image">
+        }" class="modal-image" onerror="handleImageError(this, '${
+          product.name
+        }', '${product.category}')">
                         <div class="modal-details">
                             <p><strong>Selected:</strong> ${
                               selectedVariant.size
