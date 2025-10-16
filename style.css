@@ -483,8 +483,11 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
     }
-}/* Hig
-hlights Page Styles */
+}
+
+
+/* Highlights Page Styles */
+
 .main-content {
     margin-top: 70px;
     min-height: calc(100vh - 70px);
@@ -625,11 +628,11 @@ hlights Page Styles */
 }
 
 .prev-btn {
-    left: -25px;
+    left: 5px;
 }
 
 .next-btn {
-    right: -25px;
+    right: 5px;
 }
 
 /* Best Sellers Section */
@@ -802,8 +805,12 @@ hlights Page Styles */
     .deals-timeline {
         grid-template-columns: 1fr;
     }
-}/* Ab
-out Page Styles */
+}
+
+
+
+/* About Page Styles */
+
 .about-hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
@@ -1030,7 +1037,10 @@ out Page Styles */
     font-size: 1rem;
 }
 
+
+
 /* Products Page Styles */
+
 .products-hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
@@ -1220,7 +1230,12 @@ out Page Styles */
     margin-bottom: 1rem;
 }
 
+
+
+
+
 /* Profile Page Styles */
+
 .profile-hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
