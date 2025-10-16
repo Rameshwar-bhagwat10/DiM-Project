@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://moungiri-store.vercel.app/sitemap.xml
+
+# Block admin area from search engines
+Disallow: /admin/
+
+# Allow important files
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.html
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1
